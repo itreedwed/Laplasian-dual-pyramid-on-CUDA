@@ -26,6 +26,11 @@ out/
 Thumbs.db
 desktop.ini
 
+launch.vs.json
+.vs/
+*.suo
+*.user
+
 *.png
 *.jpg
 *.bmp
