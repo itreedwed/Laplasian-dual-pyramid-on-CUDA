@@ -1,0 +1,32 @@
+build/
+out/
+*.sln
+*.vcxproj
+*.vcxproj.filters
+*.user
+*.opensdf
+*.sdf
+*.pdb
+*.idb
+*.obj
+*.exp
+*.ilk
+*.lib
+*.dll
+
+# IDE
+.vs/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ОС
+.DS_Store
+Thumbs.db
+desktop.ini
+
+*.png
+*.jpg
+*.bmp
+output_*.png
