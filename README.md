@@ -35,7 +35,7 @@ cmake --build . --config Release
 ```
 ## ⚠️ If CUDA cannot find OpenCV/CUDA, specify paths explicitly:
 ```
-cmake .. -DOpenCV_DIR="C:/opencv/build" -DCUDA_TOOLKIT_ROOT_DIR="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v12.4"
+cmake .. -DOpenCV_DIR="C:/opencv/build" -DCUDA_TOOLKIT_ROOT_DIR="C:/Program Files/NVIDIA GPU Computing Toolkit/CUDA/v13.2"
 ```
 
 ## 🚀 Usage
