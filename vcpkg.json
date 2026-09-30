@@ -1,0 +1,14 @@
+{
+  "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+  "name": "laplacian-filter",
+  "version": "2.0.0",
+  "description": "Recursive separable Laplacian double pyramid (LDP) filter on CUDA",
+  "builtin-baseline": "4cb050be2cfa7a947cdd2dd1a70e24b17774c979",
+  "dependencies": [
+    {
+      "name": "opencv4",
+      "default-features": false,
+      "features": [ "jpeg", "png" ]
+    }
+  ]
+}
