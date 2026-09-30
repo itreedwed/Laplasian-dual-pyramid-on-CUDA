@@ -1,0 +1,59 @@
+{
+  "version": 6,
+  "cmakeMinimumRequired": { "major": 3, "minor": 25, "patch": 0 },
+  "configurePresets": [
+    {
+      "name": "base",
+      "hidden": true,
+      "generator": "Ninja",
+      "binaryDir": "${sourceDir}/build/${presetName}",
+      "installDir": "${sourceDir}/install/${presetName}"
+    },
+    {
+      "name": "vcpkg",
+      "hidden": true,
+      "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+      "cacheVariables": {
+        "X_VCPKG_APPLOCAL_DEPS_INSTALL": "ON"
+      }
+    },
+    {
+      "name": "release",
+      "displayName": "Release (OpenCV from vcpkg)",
+      "description": "Downloads and builds OpenCV automatically. Requires VCPKG_ROOT.",
+      "inherits": [ "base", "vcpkg" ],
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "debug",
+      "displayName": "Debug (OpenCV from vcpkg)",
+      "inherits": [ "base", "vcpkg" ],
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Debug" }
+    },
+    {
+      "name": "release-system",
+      "displayName": "Release (installed OpenCV)",
+      "description": "Uses an already installed OpenCV. On Windows pass -DOpenCV_DIR=<path to OpenCVConfig.cmake>.",
+      "inherits": "base",
+      "cacheVariables": { "CMAKE_BUILD_TYPE": "Release" }
+    },
+    {
+      "name": "release-dist",
+      "displayName": "Release for distribution (installed OpenCV, many GPUs)",
+      "description": "Builds for all GPU generations supported by CUDA 13 (Turing and newer) plus PTX for future GPUs.",
+      "inherits": "release-system",
+      "cacheVariables": {
+        "CMAKE_CUDA_ARCHITECTURES": "75-real;80-real;86-real;89-real;90-real;100-real;120"
+      }
+    }
+  ],
+  "buildPresets": [
+    { "name": "release", "configurePreset": "release" },
+    { "name": "debug", "configurePreset": "debug" },
+    { "name": "release-system", "configurePreset": "release-system" },
+    { "name": "release-dist", "configurePreset": "release-dist" }
+  ],
+  "packagePresets": [
+    { "name": "release-dist", "configurePreset": "release-dist", "generators": [ "ZIP" ] }
+  ]
+}

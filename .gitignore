@@ -1,37 +1,19 @@
-build/
-out/
-*.sln
-*.vcxproj
-*.vcxproj.filters
-*.user
-*.opensdf
-*.sdf
-*.pdb
-*.idb
-*.obj
-*.exp
-*.ilk
-*.lib
-*.dll
+# Build products and CMake state
+/out/
+/build/
+/install/
+/vcpkg_installed/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/compile_commands.json
 
-# IDE
-.vs/
-.vscode/
-*.swp
-*.swo
-*~
+# Visual Studio and per-machine settings
+/.vs/
+/CMakeSettings.json
+/c_cpp_properties.json
+/launch.vs.json
 
-# ОС
-.DS_Store
-Thumbs.db
-desktop.ini
-
-launch.vs.json
-.vs/
-*.suo
-*.user
-
-*.png
-*.jpg
-*.bmp
-output_*.png
+# Generated or local image data
+/input.png
+/output_*.png
